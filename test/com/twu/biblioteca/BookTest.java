@@ -28,13 +28,15 @@ public class BookTest {
 
     @Test
     public void rentedBookDoesntAppearInBookList(){
-        List<Book> bookList = new ArrayList<Book>();
-        bookList.add(book1);
-        bookList.add(book2);
-        book3.setIsRented(true);
-        bookList.add(book3);
+//        List<Book> bookList = new ArrayList<Book>();
+//        bookList.add(book1);
+//        bookList.add(book2);
+//        book3.setIsRented(true);
+//        bookList.add(book3);
+//
+//        Assert.assertEquals("testId | testTitle | testAuthor | testYear\ntestId2 | testTitle2 | testAuthor2 | testYear2\n", );
 
-        Assert.assertEquals("testId | testTitle | testAuthor | testYear\ntestId2 | testTitle2 | testAuthor2 | testYear2\n", Book.printListOfAvailableBooks(bookList));
+        //  HOW TO TEST A METHOD WHICH DOESN'T GET ANY PARAMETHERS???
 
     }
 }

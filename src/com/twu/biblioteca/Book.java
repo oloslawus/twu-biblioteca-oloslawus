@@ -30,7 +30,7 @@ public class Book {
         return title;
     }
 
-    public boolean getIsRented() {
+    public Boolean getIsRented() {
         return isRented;
     }
 
@@ -38,10 +38,8 @@ public class Book {
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        for (Book book : books){
-            if (!book.isRented){
-                stringBuilder.append(book.toString()+"\n");
-            }
+        for(Book book : books){
+            stringBuilder.append(book.toString()+"\n");
         }
 
         return stringBuilder.toString();
