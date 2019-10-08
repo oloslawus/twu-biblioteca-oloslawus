@@ -26,6 +26,14 @@ public class Book {
         return id;
     }
 
+    public String getTitle(){
+        return title;
+    }
+
+    public boolean getIsRented() {
+        return isRented;
+    }
+
     public static String printListOfAvailableBooks(List<Book> books) {
 
         StringBuilder stringBuilder = new StringBuilder();

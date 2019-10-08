@@ -26,4 +26,44 @@ public class BookListMenuTest {
         books.add(book2);
         Assert.assertNotEquals(true, BookListMenu.isBookPresent(books,"blabla"));
     }
+
+    @Test
+    public void bookChangesRentalStatusIfChosenAndNotRentedYet(){
+        List<Book> books = new ArrayList<Book>();
+        book1.setIsRented(false);
+        books.add(book1);
+        books.add(book2);
+        BookListMenu.validateCheckout(books,"testId");
+        Assert.assertEquals(true, book1.getIsRented());
+    }
+
+    @Test
+    public void bookDoesntChangeRentalStatusIfAlreadyRented(){
+        List<Book> books = new ArrayList<Book>();
+        book1.setIsRented(true);
+        books.add(book1);
+        books.add(book2);
+        BookListMenu.validateCheckout(books,"testId");
+        Assert.assertEquals(true, book1.getIsRented());
+    }
+
+    @Test
+    public void bookChangesRentalStatusIfChosenToReturnAndNotReturnedYet(){
+        List<Book> books = new ArrayList<Book>();
+        book1.setIsRented(true);
+        books.add(book1);
+        books.add(book2);
+        BookListMenu.validateReturn(books,"testId");
+        Assert.assertEquals(false, book1.getIsRented());
+    }
+
+    @Test
+    public void bookDoesntChangeRentalStatusIfAlreadyReturned(){
+        List<Book> books = new ArrayList<Book>();
+        book1.setIsRented(false);
+        books.add(book1);
+        books.add(book2);
+        BookListMenu.validateReturn(books,"testId");
+        Assert.assertEquals(false, book1.getIsRented());
+    }
 }
