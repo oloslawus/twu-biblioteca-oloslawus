@@ -15,7 +15,7 @@ public class BookTest {
 
     @Test
     public void customToStringTest(){
-        Assert.assertEquals(book1.toString(), "testId | testTitle | testAuthor | testYear");
+        Assert.assertEquals("testId | testTitle | testAuthor | testYear", book1.toString());
     }
 
     @Test
@@ -26,17 +26,4 @@ public class BookTest {
         Assert.assertEquals("testId | testTitle | testAuthor | testYear\ntestId2 | testTitle2 | testAuthor2 | testYear2\n", Book.printListOfAvailableBooks(bookList));
     }
 
-    @Test
-    public void rentedBookDoesntAppearInBookList(){
-//        List<Book> bookList = new ArrayList<Book>();
-//        bookList.add(book1);
-//        bookList.add(book2);
-//        book3.setIsRented(true);
-//        bookList.add(book3);
-//
-//        Assert.assertEquals("testId | testTitle | testAuthor | testYear\ntestId2 | testTitle2 | testAuthor2 | testYear2\n", );
-
-        //  HOW TO TEST A METHOD WHICH DOESN'T GET ANY PARAMETHERS???
-
-    }
 }
