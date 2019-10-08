@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Book {
@@ -9,7 +8,6 @@ public class Book {
     private String title;
     private String yearPublished;
     private String author;
-    private ArrayList<Book> books;
 
     public Book(String id, String title, String yearPublished, String author) {
         this.id = id;
