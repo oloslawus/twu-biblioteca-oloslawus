@@ -22,6 +22,10 @@ public class Book {
         this.isRented = isRented;
     }
 
+    public String getId() {
+        return id;
+    }
+
     public static String printListOfAvailableBooks(List<Book> books) {
 
         StringBuilder stringBuilder = new StringBuilder();
