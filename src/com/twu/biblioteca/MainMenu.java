@@ -13,7 +13,7 @@ public class MainMenu {
         choice = scan.nextLine();
 
         if (choice.equals("1")){
-            System.out.println(Book.createListOfBooksToPrint(BookMock.createMockBooks()));
+            System.out.println(Book.printListOfAvailableBooks(BookMock.createMockBooks()));
         } else {
             System.out.println("Please enter the number of the option you want to choose");
         }
