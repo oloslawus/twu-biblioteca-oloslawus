@@ -7,6 +7,6 @@ public class BookMockTest {
 
     @Test //check if list contains number of books Expected
     public void listContainsNumberOfBooksExpected(){
-        Assert.assertEquals(BookMock.createMockData().size(), 4);
+        Assert.assertEquals(BookMock.createMockBooks().size(), 4);
     }
 }

@@ -9,6 +9,9 @@ public class BibliotecaApp {
 
     public static void main(String[] args) throws InterruptedException {
 
+        Book book1 = new Book("1", "A man", "1979", "Oriana Fellaci");
+
+        System.out.println(book1.toString());
         showWelcomeMessage();
 
     }
@@ -17,9 +20,7 @@ public class BibliotecaApp {
 
         System.out.println("Hello! \nWelcome to Bangalore Public Library Management System");
         MILLISECONDS.sleep(3000);
-//        System.out.println("Press Enter to continue");
-//        Scanner in here to detect Enter
-
+        MainMenu.showMainMenuOptions();
 
     }
 

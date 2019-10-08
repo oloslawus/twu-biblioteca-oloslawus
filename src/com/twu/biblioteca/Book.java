@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Book {
 
@@ -17,9 +18,21 @@ public class Book {
         this.author = author;
     }
 
-    public static void viewListOfBooks() {
 
+    public static String createListOfBooksToPrint(List<Book> books) {
 
+        StringBuilder stringBuilder = new StringBuilder();
 
+        for (Book book : books){
+            stringBuilder.append(book.toString()+"\n");
+        }
+
+        return stringBuilder.toString();
+
+    }
+
+    @Override
+    public String toString() {
+        return this.id+" | "+this.title+" | "+this.author+" | "+this.yearPublished;
     }
 }
