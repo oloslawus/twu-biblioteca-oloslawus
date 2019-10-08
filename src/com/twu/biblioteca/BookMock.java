@@ -5,7 +5,7 @@ import java.util.List;
 
 public class BookMock {
 
-    private static void createMockData() {
+    public static List<Book> createMockData() {
         Book book1 = new Book("1", "A man", "1979", "Oriana Fellaci");
         Book book2 = new Book("2", "The plague", "1947", "Albert Camus");
         Book book3 = new Book("3", "Akademia Pana Kleksa", "1946", "Jan Brzechwa");
@@ -16,5 +16,7 @@ public class BookMock {
         books.add(book2);
         books.add(book3);
         books.add(book4);
+
+        return books;
     }
 }
