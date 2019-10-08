@@ -12,16 +12,19 @@ public class BookListMenu {
 
     private static void askUserForAction() {
         System.out.println("If you want to checkout a book, please press C.\n" +
-                "If you want to return a book, please press R.");
+                "If you want to return a book, please press R.\n" +
+                "To quit press Q");
 
         Scanner scan = new Scanner(System.in);
         String choice = scan.nextLine();
 
-        if(choice.equals("R")){
+        if(choice.equalsIgnoreCase("R")){
             bookReturn();
-        } else if(choice.equals("C")){
+        } else if(choice.equalsIgnoreCase("C")){
             bookCheckout();
-        }else{
+        } else if(choice.equalsIgnoreCase("Q")){
+            return;
+        } else{
             System.out.println("An invalid option has been chosen");
         }
         askUserForAction();
