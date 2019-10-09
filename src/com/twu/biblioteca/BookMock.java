@@ -15,6 +15,7 @@ public class BookMock {
         Book book3 = new Book("3", "Akademia Pana Kleksa", "1946", "Jan Brzechwa");
         Book book4 = new Book("4", "Blindness", "1995", "Jose Saramago");
 
+        book4.setIsRented(true);
         book1.setIsRented(true);
 
         allBooks.add(book1);

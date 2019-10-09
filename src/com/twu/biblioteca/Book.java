@@ -34,7 +34,7 @@ public class Book {
         return isRented;
     }
 
-    public static String printListOfAvailableBooks(List<Book> books) {
+    public static String printListOfBooks(List<Book> books) {
 
         StringBuilder stringBuilder = new StringBuilder();
 

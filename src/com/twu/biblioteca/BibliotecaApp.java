@@ -8,6 +8,7 @@ public class BibliotecaApp {
 
         BookMock.createMockBooks();
         MovieMock.createMockMovies();
+        MockUser.createUserList();
         showWelcomeMessage();
 
     }
@@ -16,7 +17,7 @@ public class BibliotecaApp {
 
         System.out.println("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!");
         MILLISECONDS.sleep(3000);
-        MainMenu.showMainMenuOptions();
+        LoginService.openLoginMenu();
 
     }
 }

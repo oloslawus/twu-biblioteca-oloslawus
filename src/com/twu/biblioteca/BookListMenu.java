@@ -2,12 +2,13 @@ package com.twu.biblioteca;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class BookListMenu {
 
     public static void openBookListMenu(){
 
-        String availableItemList = Book.printListOfAvailableBooks(BookMock.createAvailableBookList());
+        String availableItemList = Book.printListOfBooks(BookMock.createAvailableBookList());
         System.out.println(availableItemList);
         askUserForAction();
     }
@@ -83,4 +84,9 @@ public class BookListMenu {
 
     }
 
+    public static void openCheckedOutBooks() {
+
+        List<Book> checkedOutBooks = BookMock.allBooks.stream().filter(book -> book.getIsRented().equals(true)).collect(Collectors.toList());
+        System.out.println(Book.printListOfBooks(checkedOutBooks));
+    }
 }

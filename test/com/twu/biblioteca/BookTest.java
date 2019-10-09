@@ -23,7 +23,7 @@ public class BookTest {
         List<Book> bookList = new ArrayList<Book>();
         bookList.add(book1);
         bookList.add(book2);
-        Assert.assertEquals("testId | testTitle | testAuthor | testYear\ntestId2 | testTitle2 | testAuthor2 | testYear2\n", Book.printListOfAvailableBooks(bookList));
+        Assert.assertEquals("testId | testTitle | testAuthor | testYear\ntestId2 | testTitle2 | testAuthor2 | testYear2\n", Book.printListOfBooks(bookList));
     }
 
 }

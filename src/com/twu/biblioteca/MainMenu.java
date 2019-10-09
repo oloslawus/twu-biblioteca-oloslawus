@@ -12,6 +12,30 @@ public class MainMenu {
 
     }
 
+    public static void showMainMenuOptionsForLibrarian() {
+
+        System.out.println("1. Show checked out books");
+        System.out.println("2. Show checked out movies");
+        chooseOptionFromMainMenuForLibrarian();
+
+    }
+
+    private static void chooseOptionFromMainMenuForLibrarian() {
+        System.out.println("Please choose what do you want to do next");
+        String choice = "0";
+        Scanner scan = new Scanner(System.in);
+        choice = scan.nextLine();
+
+        if (choice.equals("1")){
+            BookListMenu.openCheckedOutBooks();
+        } else if (choice.equals("2")){
+            MovieListMenu.openCheckedOutMovies();
+        } else {
+            System.out.println("Please select a valid option!");
+            chooseOptionFromMainMenu();
+        }
+    }
+
     public static void chooseOptionFromMainMenu(){
 
         System.out.println("Please choose what do you want to do next");

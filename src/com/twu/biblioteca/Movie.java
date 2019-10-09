@@ -29,7 +29,7 @@ public class Movie {
 
     }
 
-    public static String printListOfAvailableMovies(List<Movie> movies) {
+    public static String printListOfMovies(List<Movie> movies) {
 
         StringBuilder stringBuilder = new StringBuilder();
 

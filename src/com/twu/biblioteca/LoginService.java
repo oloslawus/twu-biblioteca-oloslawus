@@ -14,22 +14,29 @@ public class LoginService {
     }
 
     private static void findUser(String usernameAndPassword) {
-        Optional userToBeLoggedIn =
-                MockUser.userList.stream().filter(user -> user.getUsername().equals(usernameAndPassword.split("\\s+")[0])).findFirst();
-        if(userToBeLoggedIn.isPresent()){
-            login(usernameAndPassword,
-                    MockUser.userList.stream().filter(user -> user.getUsername().equals(usernameAndPassword.split("\\s+")[0])).findFirst().get());
-        }else{
-            openLoginMenu();
-        }
+        System.out.println("Inside findUser");
+        User userToBeLoggedIn =
+                MockUser.userList.stream().filter(user -> user.getUsername().equals(usernameAndPassword.split("\\s+")[0])).findFirst().get();
+        login(usernameAndPassword, userToBeLoggedIn);
     }
 
     private static void login(String usernameAndPassword, User userToBeLoggedIn) {
+
+        System.out.println("Inside login");
 
         Boolean usernameCorrect = userToBeLoggedIn.getUsername().equals(usernameAndPassword.split("\\s+")[0]);
         Boolean passwordCorrect = userToBeLoggedIn.getPassword().equals(usernameAndPassword.split("\\s+")[1]);
 
         loggedUser = (usernameCorrect && passwordCorrect)?(userToBeLoggedIn):(null);
+        openMenu();
 
+    }
+
+    private static void openMenu() {
+        if(loggedUser.getRole().equals(Role.USER)){
+            MainMenu.showMainMenuOptions();
+        }else{
+            MainMenu.showMainMenuOptionsForLibrarian();
+        }
     }
 }
