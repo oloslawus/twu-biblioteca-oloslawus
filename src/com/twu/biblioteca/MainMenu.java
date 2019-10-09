@@ -8,6 +8,8 @@ public class MainMenu {
 
         System.out.println("1. List of books");
         System.out.println("2. List of movies");
+        System.out.println("3. Show user details");
+
         chooseOptionFromMainMenu();
 
     }
@@ -16,6 +18,7 @@ public class MainMenu {
 
         System.out.println("1. Show checked out books");
         System.out.println("2. Show checked out movies");
+        System.out.println("3. Show user details");
         chooseOptionFromMainMenuForLibrarian();
 
     }
@@ -30,6 +33,8 @@ public class MainMenu {
             BookListMenu.openCheckedOutBooks();
         } else if (choice.equals("2")){
             MovieListMenu.openCheckedOutMovies();
+        } else if (choice.equals("3")){
+            UserMenu.showUserInformation();
         } else {
             System.out.println("Please select a valid option!");
             chooseOptionFromMainMenu();
@@ -47,6 +52,8 @@ public class MainMenu {
             BookListMenu.openBookListMenu();
         } else if (choice.equals("2")){
             MovieListMenu.openMovieListMenu();
+        } else if (choice.equals("3")){
+            UserMenu.showUserInformation();
         } else {
             System.out.println("Please select a valid option!");
             chooseOptionFromMainMenu();

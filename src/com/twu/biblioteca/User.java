@@ -31,4 +31,14 @@ public class User {
     public Role getRole() {
         return role;
     }
+
+    @Override
+    public String toString() {
+        return "Id: "+ this.id+"\n"+
+        "Username: "+ this.username+"\n"+
+        "First name: "+ this.firstName+"\n"+
+        "Last name: "+ this.lasttName+"\n"+
+        "Role: "+ this.role+"\n"+
+        "Email: "+ this.email;
+    }
 }
