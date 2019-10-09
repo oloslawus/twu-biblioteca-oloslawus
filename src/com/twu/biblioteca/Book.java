@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 import java.util.List;
 
-public class Book {
+public class Book implements Rentable {
 
     private String id;
     private String title;
