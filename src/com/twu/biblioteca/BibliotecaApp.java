@@ -7,6 +7,7 @@ public class BibliotecaApp {
     public static void main(String[] args) throws InterruptedException {
 
         BookMock.createMockBooks();
+        MovieMock.createMockMovies();
         showWelcomeMessage();
 
     }

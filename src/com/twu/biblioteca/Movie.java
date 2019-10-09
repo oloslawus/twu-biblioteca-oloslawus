@@ -59,7 +59,7 @@ public class Movie {
 
     @Override
     public String toString() {
-        return this.id+" | "+this.name+" | "+this.director+" | "+this.year+" | "+((!this.rating.equals(null))?this.rating:"");
+        return this.id+" | "+this.name+" | "+this.director+" | "+this.year;
     }
 
 
