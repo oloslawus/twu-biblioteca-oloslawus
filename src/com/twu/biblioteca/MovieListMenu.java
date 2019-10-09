@@ -5,81 +5,82 @@ import java.util.Scanner;
 
 public class MovieListMenu {
 
-    public static void openBookListMenu(){
+    public static void openMovieListMenu(){
 
-        String availableBookList = Book.printListOfAvailableBooks(BookMock.createAvailableBookList());
-        System.out.println(availableBookList);
+        String availableItemList = Movie.printListOfAvailableMovies(MovieMock.createAvailableMovieList());
+        System.out.println(availableItemList);
         askUserForAction();
     }
 
     private static void askUserForAction() {
-        System.out.println("If you want to checkout a book, please press C.\n" +
-                "If you want to return a book, please press R.\n" +
+        System.out.println("If you want to checkout an item, please press C.\n" +
+                "If you want to return an item, please press R.\n" +
                 "To quit press Q");
 
         Scanner scan = new Scanner(System.in);
         String choice = scan.nextLine();
 
         if(choice.equalsIgnoreCase("R")){
-            bookReturn();
+            movieReturn();
         } else if(choice.equalsIgnoreCase("C")){
-            bookCheckout();
+            movieCheckout();
         } else if(choice.equalsIgnoreCase("Q")){
             return;
         } else{
             System.out.println("An invalid option has been chosen");
         }
-        openBookListMenu();
+        openMovieListMenu();
 
     }
 
-    public static void bookReturn() {
+    public static void movieReturn() {
 
-        System.out.println("Please type in the id number of the book you want to return:");
+        System.out.println("Please type in the id number of the movie you want to return:");
         Scanner scanner = new Scanner(System.in);
         String choice = scanner.nextLine();
 
-        if(isBookPresent(BookMock.allBooks, choice)){
-            validateReturn(BookMock.allBooks, choice);
+        if(isMoviePresent(MovieMock.allMovies, choice)){
+            validateReturn(MovieMock.allMovies, choice);
+        }else{
+            System.out.println("Chosen movie doesn't exist");
+        }
+    }
+
+    public static void movieCheckout() {
+        System.out.println("Please type in the id number of the movie you want to checkout:");
+        Scanner scanner = new Scanner(System.in);
+        String choice = scanner.nextLine();
+
+        if(isMoviePresent(MovieMock.allMovies, choice)){
+            validateCheckout(MovieMock.allMovies, choice);
         }else{
             System.out.println("Chosen book doesn't exist");
         }
     }
 
-    public static void bookCheckout() {
-        System.out.println("Please type in the id number of the book you want to checkout:");
-        Scanner scanner = new Scanner(System.in);
-        String choice = scanner.nextLine();
-
-        if(isBookPresent(BookMock.allBooks, choice)){
-            validateCheckout(BookMock.allBooks, choice);
+    public static void validateCheckout(List<Movie> movies, String choice) {
+        Movie movieToBeRented = movies.stream().filter(movie -> movie.getId().equals(choice)).findFirst().get();
+        if (movieToBeRented.getIsRented()){
+            System.out.println("Sorry, that movie is not available");
         }else{
-            System.out.println("Chosen book doesn't exist");
+            movieToBeRented.setIsRented(true);
+            System.out.println("Thank you! Enjoy the movie!");
         }
     }
 
-    public static void validateCheckout(List<Book> books, String choice) {
-        Book bookToBeRented = books.stream().filter(book -> book.getId().equals(choice)).findFirst().get();
-        if (bookToBeRented.getIsRented()){
-            System.out.println("Sorry, that book is not available");
+    public static void validateReturn(List<Movie> movies, String choice) {
+        Movie movieToBeReturned = movies.stream().filter(movie -> movie.getId().equals(choice)).findFirst().get();
+        if (!movieToBeReturned.getIsRented()){
+            System.out.println("That is not a valid movie to return");
         }else{
-            bookToBeRented.setIsRented(true);
-            System.out.println("Thank you! Enjoy the book!");
+            movieToBeReturned.setIsRented(false);
+            System.out.println("Thank you for returning the movie");
         }
     }
 
-    public static void validateReturn(List<Book> books, String choice) {
-        Book bookToBeReturned = books.stream().filter(book -> book.getId().equals(choice)).findFirst().get();
-        if (!bookToBeReturned.getIsRented()){
-            System.out.println("That is not a valid book to return");
-        }else{
-            bookToBeReturned.setIsRented(false);
-            System.out.println("Thank you for returning the book");
-        }
-    }
-
-    public static boolean isBookPresent(List<Book> books, String choice){
-        return books.stream().filter(book -> book.getId().equals(choice)).findFirst().isPresent();
+    public static boolean isMoviePresent(List<Movie> movies, String choice){
+        return movies.stream().filter(movie -> movie.getId().equals(choice)).findFirst().isPresent();
 
     }
+
 }

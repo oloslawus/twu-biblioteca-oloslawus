@@ -7,14 +7,14 @@ public class BookListMenu {
 
     public static void openBookListMenu(){
 
-        String availableBookList = Book.printListOfAvailableBooks(BookMock.createAvailableBookList());
-        System.out.println(availableBookList);
+        String availableItemList = Book.printListOfAvailableBooks(BookMock.createAvailableBookList());
+        System.out.println(availableItemList);
         askUserForAction();
     }
 
     private static void askUserForAction() {
-        System.out.println("If you want to checkout a book, please press C.\n" +
-                "If you want to return a book, please press R.\n" +
+        System.out.println("If you want to checkout an item, please press C.\n" +
+                "If you want to return an item, please press R.\n" +
                 "To quit press Q");
 
         Scanner scan = new Scanner(System.in);
