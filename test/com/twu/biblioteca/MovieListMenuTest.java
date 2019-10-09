@@ -8,7 +8,8 @@ import java.util.List;
 
 public class MovieListMenuTest {
 
-    Movie movie1 = new Movie("testId", "testTitle", "testYear", "testDirector");
+    String idOfMovieToBeTested = "testId";
+    Movie movie1 = new Movie(idOfMovieToBeTested, "testTitle", "testYear", "testDirector");
     Movie movie2 = new Movie("testId2", "testTitle2", "testYear2", "testDirector2");
 
     @Test
@@ -16,7 +17,7 @@ public class MovieListMenuTest {
         List<Movie> movies = new ArrayList<Movie>();
         movies.add(movie1);
         movies.add(movie2);
-        Assert.assertEquals(true, MovieListMenu.isMoviePresent(movies, "testId"));
+        Assert.assertEquals(true, MovieListMenu.isMoviePresent(movies, idOfMovieToBeTested));
     }
 
     @Test
@@ -33,7 +34,7 @@ public class MovieListMenuTest {
         movie1.setIsRented(false);
         movies.add(movie1);
         movies.add(movie2);
-        MovieListMenu.validateCheckout(movies,"testId");
+        MovieListMenu.validateCheckout(movies,idOfMovieToBeTested);
         Assert.assertEquals(true, movie1.getIsRented());
     }
 
@@ -43,7 +44,7 @@ public class MovieListMenuTest {
         movie1.setIsRented(true);
         movies.add(movie1);
         movies.add(movie2);
-        MovieListMenu.validateCheckout(movies,"testId");
+        MovieListMenu.validateCheckout(movies,idOfMovieToBeTested);
         Assert.assertEquals(true, movie1.getIsRented());
     }
 
@@ -53,7 +54,7 @@ public class MovieListMenuTest {
         movie1.setIsRented(true);
         movies.add(movie1);
         movies.add(movie2);
-        MovieListMenu.validateReturn(movies,"testId");
+        MovieListMenu.validateReturn(movies,idOfMovieToBeTested);
         Assert.assertEquals(false, movie1.getIsRented());
     }
 
@@ -63,7 +64,7 @@ public class MovieListMenuTest {
         movie1.setIsRented(false);
         movies.add(movie1);
         movies.add(movie2);
-        MovieListMenu.validateReturn(movies,"testId");
+        MovieListMenu.validateReturn(movies,idOfMovieToBeTested);
         Assert.assertEquals(false, movie1.getIsRented());
     }
 }

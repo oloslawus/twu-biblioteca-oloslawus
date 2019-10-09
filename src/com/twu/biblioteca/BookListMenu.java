@@ -20,11 +20,11 @@ public class BookListMenu {
         Scanner scan = new Scanner(System.in);
         String choice = scan.nextLine();
 
-        if(choice.equalsIgnoreCase("R")){
+        if(choice.equalsIgnoreCase(Options.R.toString())){
             bookReturn();
-        } else if(choice.equalsIgnoreCase("C")){
+        } else if(choice.equalsIgnoreCase(Options.C.toString())){
             bookCheckout();
-        } else if(choice.equalsIgnoreCase("Q")){
+        } else if(choice.equalsIgnoreCase(Options.Q.toString())){
             return;
         } else{
             System.out.println("An invalid option has been chosen");
@@ -59,12 +59,12 @@ public class BookListMenu {
     }
 
     public static void validateCheckout(List<Book> books, String choice) {
-        Book bookToBeRented = books.stream().filter(book -> book.getId().equals(choice)).findFirst().get();
-        if (bookToBeRented.getIsRented()){
-            System.out.println("Sorry, that book is not available");
-        }else{
-            bookToBeRented.setIsRented(true);
-            System.out.println("Thank you! Enjoy the book!");
+                Book bookToBeRented = books.stream().filter(book -> book.getId().equals(choice)).findFirst().get();
+                if (bookToBeRented.getIsRented()){
+                    System.out.println("Sorry, that book is not available");
+                }else{
+                    bookToBeRented.setIsRented(true);
+                    System.out.println("Thank you! Enjoy the book!");
         }
     }
 

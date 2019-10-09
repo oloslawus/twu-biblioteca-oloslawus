@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookListMenuTest {
-
-    Book book1 = new Book("testId", "testTitle", "testYear", "testAuthor");
+    String idOfBookToBeTested = "testId";
+    Book book1 = new Book(idOfBookToBeTested, "testTitle", "testYear", "testAuthor");
     Book book2 = new Book("testId2", "testTitle2", "testYear2", "testAuthor2");
 
     @Test
@@ -16,7 +16,7 @@ public class BookListMenuTest {
         List<Book> books = new ArrayList<Book>();
         books.add(book1);
         books.add(book2);
-        Assert.assertEquals(true, BookListMenu.isBookPresent(books, "testId"));
+        Assert.assertEquals(true, BookListMenu.isBookPresent(books, idOfBookToBeTested));
     }
 
     @Test
@@ -33,7 +33,7 @@ public class BookListMenuTest {
         book1.setIsRented(false);
         books.add(book1);
         books.add(book2);
-        BookListMenu.validateCheckout(books,"testId");
+        BookListMenu.validateCheckout(books,idOfBookToBeTested);
         Assert.assertEquals(true, book1.getIsRented());
     }
 
@@ -43,7 +43,7 @@ public class BookListMenuTest {
         book1.setIsRented(true);
         books.add(book1);
         books.add(book2);
-        BookListMenu.validateCheckout(books,"testId");
+        BookListMenu.validateCheckout(books,idOfBookToBeTested);
         Assert.assertEquals(true, book1.getIsRented());
     }
 
@@ -53,7 +53,7 @@ public class BookListMenuTest {
         book1.setIsRented(true);
         books.add(book1);
         books.add(book2);
-        BookListMenu.validateReturn(books,"testId");
+        BookListMenu.validateReturn(books,idOfBookToBeTested);
         Assert.assertEquals(false, book1.getIsRented());
     }
 
@@ -63,7 +63,7 @@ public class BookListMenuTest {
         book1.setIsRented(false);
         books.add(book1);
         books.add(book2);
-        BookListMenu.validateReturn(books,"testId");
+        BookListMenu.validateReturn(books,idOfBookToBeTested);
         Assert.assertEquals(false, book1.getIsRented());
     }
 }
