@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import java.util.Optional;
 import java.util.Scanner;
 
 public class LoginService {
@@ -9,20 +8,19 @@ public class LoginService {
     static Scanner scanner = new Scanner(System.in);
 
     public static void openLoginMenu(){
+
         System.out.println("Please insert your username and password separated by space and press Enter");
         findUser(scanner.nextLine());
     }
 
     private static void findUser(String usernameAndPassword) {
-        System.out.println("Inside findUser");
+
         User userToBeLoggedIn =
                 MockUser.userList.stream().filter(user -> user.getUsername().equals(usernameAndPassword.split("\\s+")[0])).findFirst().get();
         login(usernameAndPassword, userToBeLoggedIn);
     }
 
     private static void login(String usernameAndPassword, User userToBeLoggedIn) {
-
-        System.out.println("Inside login");
 
         Boolean usernameCorrect = userToBeLoggedIn.getUsername().equals(usernameAndPassword.split("\\s+")[0]);
         Boolean passwordCorrect = userToBeLoggedIn.getPassword().equals(usernameAndPassword.split("\\s+")[1]);
@@ -33,6 +31,7 @@ public class LoginService {
     }
 
     private static void openMenu() {
+
         if(loggedUser.getRole().equals(Role.USER)){
             MainMenu.showMainMenuOptions();
         }else{

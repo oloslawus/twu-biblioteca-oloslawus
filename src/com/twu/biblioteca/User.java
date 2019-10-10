@@ -6,7 +6,7 @@ public class User {
     private String username;
     private String password;
     private String firstName;
-    private String lasttName;
+    private String lastName;
     private Role role;
     private String email;
 
@@ -15,7 +15,7 @@ public class User {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
-        this.lasttName = lasttName;
+        this.lastName = lasttName;
         this.role = role;
         this.email = email;
     }
@@ -37,7 +37,7 @@ public class User {
         return "Id: "+ this.id+"\n"+
         "Username: "+ this.username+"\n"+
         "First name: "+ this.firstName+"\n"+
-        "Last name: "+ this.lasttName+"\n"+
+        "Last name: "+ this.lastName +"\n"+
         "Role: "+ this.role+"\n"+
         "Email: "+ this.email;
     }
